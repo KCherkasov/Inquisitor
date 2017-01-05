@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>768</x>
+      <y>240</y>
+      <w>192</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>/LevelableObject/
+--
+#level: size_t
+--
++level(): size_t
+/+level_up(): size_t/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1092</x>
+      <y>12</y>
+      <w>192</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>/GameObject/
+--
+#own_id: size_t
+#name: std::string
+#description: std::string
+#to_delete: bool
+--
++own_id(): size_t
++name(): std::string
++description(): std::string
++to_delete(): bool
+/+what(): std::string/
+/+short_what(): std::string/
+/+update(): size_t/
++st_name(value: const std::string&amp;): size_t
++set_description(value: const std::string&amp;): size_t
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1182</x>
+      <y>156</y>
+      <w>18</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1422</x>
+      <y>240</y>
+      <w>192</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>/Area/
+--
+#connections: std::vector&lt;Area*&gt;
+#trespassers: std::vector&lt;Character*&gt;
+--
++connections(index: const size_t&amp;): Area*
++connections(): std::vector&lt;Area*&gt;
++trespassers(index: const size_t&amp;): Character*
++trespassers(): std::vector&lt;Character*&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>204</y>
+      <w>672</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0;1100.0;10.0;1100.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>438</x>
+      <y>24</y>
+      <w>270</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>BehavioralObject
+--
+#affections: std::vector&lt;ssize_t&gt;
+#approvals: Approvals
+#stat_modifiers: std::vector&lt;size_t&gt;
+--
++affections(index: const size_t&amp;): ssize_t
++affections(): std::vector&lt;ssize_t&gt;
++approvals(): Approvals
++stat_modifiers(index: const size_t&amp;): size_t
++stat_modifiers(): std::vector&lt;size_t&gt;
++what(): std::string
++short_what(): std::string
++update(): size_t</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>702</x>
+      <y>78</y>
+      <w>402</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>650.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>732</x>
+      <y>384</y>
+      <w>270</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>Character
+--
+#factions: std::vector&lt;BehavioralObject&amp;&gt;
+#origin: BehavioralObject&amp;
+#char_class: BehavioralObject&amp;
+#stats: std::vector&lt;size_t&gt;
+#affections: std::vector&lt;ssize_t&gt;
+#approvals: Approvals
+#experience: std::vector&lt;size_t&gt;
+#gender: bool
+--
++factions(index: const size_t&amp;): BehavioralObject&amp;
++factions(): std::vector&lt;BehavioralObject&amp;&gt;
++origin(): BehavioralObject&amp;
++char_class(): BehavioralObject&amp;
++stats(index: const size_t&amp;): size_t
++stats(): std::vector&lt;size_t&gt;
++affections(index: const size_t&amp;): ssize_t
++affections(): std::vector&lt;ssize_t&gt;
++approvals(): Approvals
++experience(index: const size_t&amp;): size_t
++experience(): std::vector&lt;size_t&gt;
++gender(): bool
++what(): std::string
++short_what(): std::string
++update(): size_t
++level_up(): size_t</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>492</x>
+      <y>150</y>
+      <w>252</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=3</panel_attributes>
+    <additional_attributes>400.0;470.0;10.0;470.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>246</x>
+      <y>222</y>
+      <w>186</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;typedef&gt;&gt;
+struct Approvals
+--
++factions: std::map&lt;BehavioralObject&amp;, ssize_t&gt;
++classes: std::map&lt;BehavioralObject&amp;, ssize_t&gt;
++origins: std::map&lt;BehavioralObject&amp;, ssize_t&gt;
++stats: std::map&lt;size_t, ssize_t&gt;
++gender: std::map&lt;bool, ssize_t&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>78</y>
+      <w>126</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>294</y>
+      <w>414</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>670.0;310.0;10.0;310.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>288</y>
+      <w>18</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+</diagram>
