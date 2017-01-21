@@ -33,8 +33,8 @@ class Approvals {
       return *this;
     }
     
-    friend std::istream& operator >> (std::istream& stream, Approvals& data);
-    friend std::ostream& operator << (std::ostream& stream, const Approvals& data)
+    friend std::ifstream& operator >> (std::ifstream& stream, Approvals& data);
+    friend std::ofstream& operator << (std::ofstream& stream, const Approvals& data)
     
   private:
     std::map<size_t, ssize_t> _factions;
@@ -56,6 +56,10 @@ class BehavioralObject: public GameObject {
     std::string what() const;
     std::string short_what() const;
     size_t update() { return RC_OK; }
+    
+    friend std::ifstream& operator >> (std::ifstream& stream, BehavioralObject&  data);
+    friend std::ofstream& operator << (std::ofstream& stream, const BehavioralObject& data);
+    
   protected:
     std::vector<ssize_t> _affections;
     Approvals _approvals;

@@ -82,3 +82,44 @@ std::ofstream& operator << (std::ofstream& stream, const Approvals& data) {
   }
   return stream;
 }
+
+std::ifstream& operator >> (std::ifstream& stream, BehavioralObject& data) {
+  stream >> _own_id;
+  stream >> _name;
+  stream >> _description;
+  size_t counter = SIZE_T_DEFAULT_VALUE;
+  stream >> counter;
+  if (counter > FREE_UID) {
+    ssize_t buffer = SSIZE_T_DEFAULT_VALUE;
+    for (size_t i = 0; i < counter; ++i) {
+      stream >> buffer;
+      _affections.push_back(buffer);
+    }
+  }
+  stream >> data._approvals;
+  stream >> counter;
+  if (counter > FREE_UID) {
+    ssize_t buffer = SSIZE_T_DEFAULT_VALUE;
+    for (size_t i = 0; i < counter; ++i) {
+      stream >> buffer;
+      _stat_modifiers.push_back(buffer);
+    }
+  }
+  return stream;
+}
+
+std::ofstream& operator << (std::ofstream& stream, const BehavioralObject& data) {
+  stream << _own_id;
+  stream << _name;
+  stream << _description;
+  stream << _affections.size();
+  for (size_t i = 0; i < _affections.size(); ++i) {
+    stream << _affections[i];
+  }
+  stream << data._approvals;
+  stream << _stat_modifiers.size();
+  for (size_t i = 0; i < _stat_modifiers.size(); ++i) {
+    stream << _stat_modifiers[i];
+  }
+  return stream;
+}
