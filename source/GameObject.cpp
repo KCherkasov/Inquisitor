@@ -1,6 +1,6 @@
 ﻿#include "GameObject.h"
 
-size_t GameObject::_id = 0;
+ssize_t GameObject::_id = FREE_ID;
 
 size_t GameObject::set_name(const std::string& value) {
   if (value.empty()) {

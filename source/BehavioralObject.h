@@ -76,8 +76,8 @@ class BehavioralStorage {
     BehavioralObject& factions(const size_t& index) const { return _factions[index]; }
     std::vector<BehavioralObject> factions() const { return _factions; }
     size_t factions_count() const { return _factions.size(); }
-    BehavioralObject& origins(const size_t& index) { return _origins[index]; }
-    std::vector<BehavioralObject> origins() { return _origins; }
+    BehavioralObject& origins(const size_t& index) const { return _origins[index]; }
+    std::vector<BehavioralObject> origins() const { return _origins; }
     size_t origins_count() const { return _origins.size(); }
     size_t add_class(const BehavioralObject& new_class) { _classes.push_back(new_class); return RC_OK; }
     size_t add_origin(const BehavioralObject& new_origin) { _origins.push_back(new_origin); return RC_OK; }

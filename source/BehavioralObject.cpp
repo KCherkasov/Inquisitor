@@ -123,3 +123,15 @@ std::ofstream& operator << (std::ofstream& stream, const BehavioralObject& data)
   }
   return stream;
 }
+
+std::string BehavioralObject::what() const {
+  std::string result;
+  
+  return result;
+}
+
+std::string BehavioralObject::short_what() const {
+  std::string result;
+  
+  return result
+}
